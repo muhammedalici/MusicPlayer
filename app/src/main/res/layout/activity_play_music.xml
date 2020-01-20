@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.musicapp.PlayMusicActivity"
+    android:background="@color/dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="62dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <EditText
+
+                android:id="@+id/sarki_ara_ana_ekran"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:padding="5dp"
+                android:hint="Şarkı Ara"
+                android:textColorHint="@color/lightGray"
+                android:textColor="@color/lightGray"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_editxt_main_ara"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightGray"
+                android:text="Son Dinlediklerim"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="22sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_last_music"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightGray"
+                android:text="Beğendiklerim"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="22sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_liked_songs"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightGray"
+                android:text="Bunları da Dinleyenilirsin"
+                android:textStyle="bold"
+                android:paddingLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="22sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_tavsiye_edilenler"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/lightGray"
+        >
+
+    </LinearLayout>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tool_bar"
+        layout="@layout/bottom_bar"
+        ></include>
+
+</RelativeLayout>

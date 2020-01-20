@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_hori_card"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    android:layout_marginRight="8dp"
+    android:layout_gravity="center"
+
+    >
+
+
+
+    <LinearLayout
+        android:background="@color/dark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/pause_24dp"
+            android:id="@+id/card_hori_img"/>
+        <TextView
+            android:id="@+id/card_hori_txt"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:textColor="@color/lightGray"
+            android:text="asasdasdasd asdsadsad asdasd"
+            android:textSize="10sp"
+            android:maxLines="2"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

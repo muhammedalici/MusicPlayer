@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">musicApp</string>
+    <string name="action_settings">Ayarlar</string>
+
+    <string name="hello_blank_fragment">Boş fragment:/</string>
+    <string name="forgot_password">Şifreni mi Unuttun?</string>
+    <string name="password">Şifre</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Şifreyi Onayla</string>
+    <string name="login">Giriş</string>
+    <string name="sign_up">Kaydol</string>
+    <string name="or">veya</string>
+
+</resources>
