@@ -47,6 +47,8 @@ public class PlayScreenActivity extends AppCompatActivity {
     private Button playButton,next,prev,fav;
     private ImageView songImage;
     String myUri="";
+    private  int listedeVarmi=0,toplamOneri=0;
+
     int start=0,lenght=0,isSeekbarKullanilabilir=1;
     public static int oneTimeOnly = 0;
     int index;
@@ -255,7 +257,7 @@ public class PlayScreenActivity extends AppCompatActivity {
                             fav.setBackgroundResource(R.drawable.ic_favorite_gray_24dp);
                             for (DataSnapshot ds1: dataSnapshot.getChildren()){
                                 if(ds1.getValue().toString().equals(muzikler.get(index))){
-                                    //ds1.getRef().removeValue();
+                                    ds1.getRef().removeValue();
                                     isLiked=0;
                                 }
                             }
@@ -265,6 +267,44 @@ public class PlayScreenActivity extends AppCompatActivity {
                             DatabaseReference add = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LikedSongs");
                             String key = FirebaseDatabase.getInstance().getReference().child("quiz").push().getKey();
                             add.child(key).setValue(muzikler.get(index));
+                            DatabaseReference search=FirebaseDatabase.getInstance().getReference().child("Users");
+                            toplamOneri=0;
+                            search.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                    for (DataSnapshot users:dataSnapshot.getChildren()){
+                                        listedeVarmi=0;
+                                        for(DataSnapshot listeler: users.getChildren()){
+                                            if(listeler.getKey().equals("LikedSongs")){
+                                                for (DataSnapshot userLiked: listeler.getChildren()){
+                                                    if(userLiked.getValue().toString().equals(muzikler.get(index))){
+                                                        listedeVarmi=1;
+                                                    }
+                                                }
+                                                if(listedeVarmi==1){
+                                                    for (DataSnapshot userLiked: listeler.getChildren()){
+                                                        if(!userLiked.getValue().toString().equals(muzikler.get(index))&&
+                                                        toplamOneri<7){
+
+                                                            DatabaseReference ekle= FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("RecommendedSongs");
+                                                            String key = FirebaseDatabase.getInstance().getReference().child("quiz").push().getKey();
+                                                            ekle.child(key).setValue(userLiked.getValue().toString());
+                                                            toplamOneri++;
+                                                        }
+                                                    }
+                                                    listedeVarmi=0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                             isLiked=1;
                         }
                     }

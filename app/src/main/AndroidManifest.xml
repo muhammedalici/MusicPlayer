@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PlayScreenActivity"></activity>
+        <activity android:name=".RecmmdSongsActivity"></activity>
+        <activity android:name=".LikedSongsActivity" />
+        <activity android:name=".PlayScreenActivity" />
         <activity android:name=".PlayActivity" />
         <activity
             android:name=".SearchMusicActivity"

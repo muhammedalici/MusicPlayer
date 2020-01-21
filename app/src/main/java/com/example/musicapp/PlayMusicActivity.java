@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.musicapp.login.LoginFragment;
@@ -65,10 +68,39 @@ public class PlayMusicActivity extends AppCompatActivity {
         //MuzikListesiniGuncelle();
         ButtnOnClick();
         initRecycles();
+        menu();
 
 
 
 
+
+    }
+
+    private void menu() {
+
+        Button recmd=findViewById(R.id.bt_recmd_btn);
+        Button liked=findViewById(R.id.bt_liked_btn);
+        Button home =findViewById(R.id.bt_home_btn);
+        TextView textMenu= findViewById(R.id.bt_home_txt);
+        textMenu.setTextColor(Color.parseColor("#f05408"));
+
+
+        home.setBackgroundResource(R.drawable.ic_home_orange_24dp);
+
+        recmd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlayMusicActivity.this,RecmmdSongsActivity.class);
+                startActivity(i);
+            }
+        });
+        liked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlayMusicActivity.this,LikedSongsActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
